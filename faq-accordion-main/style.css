@@ -1,0 +1,99 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+
+  font-size: 16px;
+  font-family: "Work Sans", sans-serif;
+  color: var(--dark-purple);
+  background-color: var(--light-pink);
+  background-image: url("./assets/images/background-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.faq-card {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+}
+
+.faq-card-header-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.faq-card-header-wrapper > h1 {
+  font-size: 4rem;
+}
+
+.accordion-item {
+  overflow: hidden;
+}
+.accordion-item:not(:last-child) {
+  border-bottom: 1px solid var(--grayish-purple);
+}
+
+.accordion-toggle {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  padding: 1rem 0;
+  background-color: var(--white);
+  font-size: 1.25rem;
+  color: var(--dark-purple);
+  font-weight: bold;
+}
+.accordion-toggle:hover {
+  color: blue;
+}
+
+.accordion-panel {
+  color: var(--grayish-purple);
+  font-size: 1.25rem;
+  max-height: 0;
+  transition: max-height 400ms ease-out, padding 400ms ease-out;
+}
+
+.accordion-panel.expanded {
+  max-height: 10rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 640px) {
+  :root {
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .faq-card {
+    padding: 1rem;
+  }
+  .accordion-panel.expanded {
+    max-height: 20rem;
+  }
+}
